@@ -10,11 +10,11 @@ function App() {
   return (
     <>
       <div>
-      <label for="donVis">Đơn vị</label>
+      <label htmlFor="donVis">Đơn vị</label>
         <select autoComplete='off' name="donVis" id="donVis" onChange={handleChange}>
           <option value="">--Chọn đơn vị--</option>
           {datas.map((item, i)=>
-            <option value={item.url}>{item.ten}</option>
+            <option key={i + 1} value={item.url}>{item.ten}</option>
           )}
         </select>
       </div>
