@@ -1,4 +1,5 @@
-import './App.css'
+import './App.css';
+import datas from './../data.json';
 
 function App() {
   const handleChange =(event)=>{
@@ -6,14 +7,15 @@ function App() {
       window.location.assign(event.target.value);
     }
   }
-
   return (
     <>
       <div>
-        <select autoComplete='off' name="links" id="links" onChange={handleChange}>
-          <option value="">--Chọn--</option>
-          <option value="https://vite.dev">Volvo</option>
-          <option value="https://react.dev">Saab</option>
+      <label for="donVis">Đơn vị</label>
+        <select autoComplete='off' name="donVis" id="donVis" onChange={handleChange}>
+          <option value="">--Chọn đơn vị--</option>
+          {datas.map((item, i)=>
+            <option value={item.url}>{item.ten}</option>
+          )}
         </select>
       </div>
     </>
