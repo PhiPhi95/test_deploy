@@ -1,7 +1,15 @@
 import './App.css';
 import datas from './../data.json';
+import React, { useEffect } from 'react';
 
 function App() {
+   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const detail = params.get('detail');
+    if (detail) {
+      window.location.href = `EDocMobile://DSVBDenRoute?detail=${detail}`;
+    }
+  }, []);
   const handleChange =(event)=>{
     if(event.target.value){
       window.location.assign(event.target.value);
