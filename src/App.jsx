@@ -20,7 +20,7 @@ function App() {
     <>
       <div>
         <button onClick={() => {
-          window.location.href = `edocmobile://DSVBDenRoute?detail=${detail}`;
+          window.location.href = `edocmobile://route?screen=DSVBDenRoute&detail=${detail}`;
           }}>Chuyển hướng</button>
       </div>
     </>
