@@ -1,13 +1,14 @@
 import './App.css';
 import datas from './../data.json';
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 
 function App() {
+  const [detail, setDetail]= useState();
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const detail = params.get('detail');
     if (detail) {
-      window.location.href = `EDocMobile://DSVBDenRoute?detail=${detail}`;
+      setDetail(detail)
     }
   }, []);
   const handleChange =(event)=>{
@@ -18,13 +19,9 @@ function App() {
   return (
     <>
       <div>
-      <label htmlFor="donVis">Đơn vị</label>
-        <select autoComplete='off' name="donVis" id="donVis" onChange={handleChange}>
-          <option value="">--Chọn đơn vị--</option>
-          {datas.map((item, i)=>
-            <option key={i + 1} value={item.url}>{item.ten}</option>
-          )}
-        </select>
+        <button onClick={() => {
+          window.location.href = `edocmobile://DSVBDenRoute?detail=${detail}`;
+          }}>Chuyển hướng</button>
       </div>
     </>
   )
