@@ -1,6 +1,6 @@
 import './App.css';
 import datas from './../data.json';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function App() {
   const [detail, setDetail]= useState();
